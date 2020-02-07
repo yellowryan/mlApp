@@ -1,0 +1,60 @@
+{
+    "dailyData":[
+        {
+            "link" : "https://jddx.jd.com/m/jddnew/index.html?tab=mx&xxfpt&jd&bbx",
+            "colorText" : "免息星球",
+            "normalText" : "白条免息购",
+            "background" : "linear-gradient(90deg, #FF2A2A,#F139D2)",
+            "src" : "https://m.360buyimg.com/n1/s150x150_jfs/t29566/227/1464891645/10350/a5b133e2/5ce20cdcNd9cdd972.jpg!q70.jpg.dpg"
+        },
+        {
+            "link" : "https://wqs.jd.com/portal/wx/seckill_m/specialprice.shtml?st=1",
+            "colorText" : "每日特价",
+            "normalText" : "9.9疯抢",
+            "background" : "linear-gradient(90deg, #FE8537,#F02B2B)",
+            "src" : "https://m.360buyimg.com/mobilecms/s150x150_jfs/t1/85072/25/5818/20921/5def3796Eeb18104b/fed4740b6b58d144.jpg!q70.jpg.dpg"
+        },
+        {
+            "link" : "https://wqs.jd.com/portal/wx/seckill_m/brand.shtml",
+            "colorText" : "品牌闪购",
+            "normalText" : "汇大牌好价",
+            "background" : "linear-gradient(90deg, #FF765C,#FF23B3)",
+            "src" : "https://m.360buyimg.com/mobilecms/s150x150_jfs/t1/100430/19/5671/35161/5def3b36Eda0d4e24/cae78ce556a995c7.png!q70.jpg.dpg"
+        },
+        {
+            "link" : "https://wqs.jd.com/live/list/index.shtml",
+            "colorText" : "麋鹿直播",
+            "normalText" : "好货即刻买",
+            "background" : "linear-gradient(90deg, #FF2A00,#FF00AF)",
+            "src" : "https://m.360buyimg.com/mobilecms/s150x150_jfs/t1/75300/31/13658/33045/5daeb773Ebbbd91bd/47a1bdf9047ed568.jpg!q70.jpg.dpg"
+        },
+        {
+            "link" : "https://coupon.m.jd.com/ranklist/hotSaleRankList.action",
+            "colorText" : "排行榜",
+            "normalText" : "销量排行推荐",
+            "background" : "linear-gradient(90deg, #D400FF,#FF320A)",
+            "src" : "https://m.360buyimg.com/mobilecms/s150x150_jfs/t1/71612/30/758/62076/5cefa5a6E2494c8c2/13aac3e0bb1b4e55.png!q70.jpg.dpg"
+        },
+        {
+            "link" : "https://pro.m.jd.com/mall/active/LHGZv1DrGkva1jNpUkKFuNFN6oo/index.html",
+            "colorText" : "拍拍好物",
+            "normalText" : "iphone 5折起",
+            "background" : "linear-gradient(90deg, #00C2AB,#3E94FF)",
+            "src" : "https://m.360buyimg.com/mobilecms/s150x150_jfs/t1/76945/35/760/26244/5cef9705E501242ee/c56b89c0946438ef.jpg!q70.jpg.dpg"
+        },
+        {
+            "link" : "https://pro.m.jd.com/mall/active/LHGZv1DrGkva1jNpUkKFuNFN6oo/index.html",
+            "colorText" : "新品首发",
+            "normalText" : "麋鹿小魔方",
+            "background" : "linear-gradient(90deg, #FF765C,#FF23B3)",
+            "src" : "https://m.360buyimg.com/n1/s150x150_jfs/t11128/25/2817168750/9187/72b53c/5cdaa568N8f652eb8.jpg!q70.jpg.dpg"
+        },
+        {
+            "link" : "https://m.jd.com/webportal/channel/find_quality_goods",
+            "colorText" : "发现好货",
+            "normalText" : "发现品质生活",
+            "background" : "linear-gradient(90deg, #2AD396,#85BB1F)",
+            "src" : "https://m.360buyimg.com/mobilecms/s150x150_jfs/t1/38988/36/7707/54292/5cefa2b0E1cce5cfa/64e76ed6c67568bf.png!q70.jpg.dpg"
+        }
+    ]
+}

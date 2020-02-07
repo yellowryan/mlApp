@@ -1,0 +1,103 @@
+[
+    [{ "id": "001", "url": "imgs/navLists/001.png", "title": "麋鹿新品" },
+        {
+            "id": "002",
+            "url": "imgs/navLists/002.png",
+            "title": "今日爆款"
+        }
+    ],
+    [{
+            "id": "003",
+            "url": "imgs/navLists/003.png",
+            "title": "快乐星球"
+        },
+        {
+            "id": "004",
+            "url": "imgs/navLists/004.png",
+            "title": "饿了么"
+        }
+    ],
+    [{
+            "id": "005",
+            "url": "imgs/navLists/005.png",
+            "title": "麋鹿商城"
+        },
+        {
+            "id": "006",
+            "url": "imgs/navLists/006.png",
+            "title": "手机电器"
+        }
+    ],
+    [{
+            "id": "007",
+            "url": "imgs/navLists/007.png",
+            "title": "飞猪旅行"
+        },
+        {
+            "id": "008",
+            "url": "imgs/navLists/008.png",
+            "title": "鹿鹿币"
+        }
+    ],
+    [{
+            "id": "009",
+            "url": "imgs/navLists/009.png",
+            "title": "拍卖会"
+        },
+        {
+            "id": "010",
+            "url": "imgs/navLists/010.png",
+            "title": "大众点评"
+        }
+    ],
+    [{
+            "id": "011",
+            "url": "imgs/navLists/011.png",
+            "title": "分类"
+        },
+        {
+            "id": "012",
+            "url": "imgs/navLists/012.png",
+            "title": "鹿鹿美食"
+        }
+    ],
+    [{
+            "id": "013",
+            "url": "imgs/navLists/013.png",
+            "title": "鹿鹿健康"
+        },
+        {
+            "id": "014",
+            "url": "imgs/navLists/014.png",
+            "title": "鹿鹿生活"
+        }
+    ],
+    [{
+            "id": "015",
+            "url": "imgs/navLists/015.png",
+            "title": "土货鲜食"
+        },
+        {
+            "id": "016",
+            "url": "imgs/navLists/016.png",
+            "title": "咸鱼"
+        }
+    ],
+    [{
+            "id": "017",
+            "url": "imgs/navLists/017.png",
+            "title": "会员卡"
+        },
+        {
+            "id": "018",
+            "url": "imgs/navLists/018.png",
+            "title": "淘票票"
+        }
+    ],
+    [{
+        "id": "019",
+        "url": "imgs/navLists/019.png",
+        "title": "会员生活"
+    }]
+
+]
