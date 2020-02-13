@@ -21,7 +21,6 @@ export default {
 <style lang="less" scoped>
   #daily-shop{
     background: #f6f6f6;
-    margin-bottom: 200px;
   }
   .daily-container-outer{
     width: 100%;

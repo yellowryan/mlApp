@@ -2,10 +2,11 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 const Home = () => import('../views/home/Home.vue')
 const Ceshi = () => import('../components/Ceshi.vue')
-const Type = () => import('../views/type/Type.vue')
+const Category = () => import('../views/category/Category.vue')
 const Discovery = () => import('../views/discovery/Discovery.vue')
 const Cart = () => import('../views/cart/Cart.vue')
 const My = () => import('../views/my/My.vue')
+const Detail = () =>import('../views/details/Detail.vue')
 Vue.use(VueRouter)
 
 export default new VueRouter({
@@ -19,9 +20,9 @@ export default new VueRouter({
             component: Home,
             name: 'home'
         }, {
-            path: '/type',
-            name: 'type',
-            component: Type
+            path: '/category',
+            name: 'category',
+            component: Category
         }, {
             path: '/discovery',
             name: 'discovery',
@@ -34,6 +35,11 @@ export default new VueRouter({
             path: '/my',
             name: 'my',
             component: My
+        },
+        {
+            path: '/detail/:id',
+            name: 'detail',
+            component: Detail
         },
         {
             path: '/ceshi/:userId',

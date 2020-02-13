@@ -18,3 +18,9 @@ export function getDailyList(){
         url : "data/dailyData/daily.json"
     })
 }
+
+export function getRecommendList(){
+    return request({
+        url : "data/recommendData/recommend.json"
+    })
+}

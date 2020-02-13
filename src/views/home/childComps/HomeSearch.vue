@@ -25,7 +25,7 @@
   background-image: url("/imgs/xingzuo.png");
   background-size: 1.8rem 1.8rem;
   background-repeat: no-repeat;
-  background-position: 0.45rem center;
+  background-position: 0.45rem 0.35rem;
 }
 .home-search {
   text-align: center;

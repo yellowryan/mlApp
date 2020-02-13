@@ -23,13 +23,12 @@
     }
     .serach-wrapper{
         display: block;
-        position: fixed;
         width: 100%;
-        top: 0;
-        left: 0;
-        right: 0;
-        z-index: 5;
-        min-height: 2.4rem;
+        //  position: fixed;
+        // top: 0;
+        // left: 0;
+        // right: 0;
+        // z-index: 5;
         .header-content{
             width: 100%;
             height: 100%;
@@ -48,8 +47,8 @@
                     margin-left: -100%;
                     position: relative;
                     left: -2rem;
-                    height: 2.5rem;
-                    line-height: 2.5rem;
+                    height: 2.2rem;
+                    line-height: 2.2rem;
                 }
                 .right-container{
                     float: left;

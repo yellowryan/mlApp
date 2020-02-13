@@ -1,6 +1,6 @@
 <template>
   <div class="explore">
-    <div class="exp-container">
+    <div class="container exp-container">
       <div class="container-items">
         <div class="left-img">
           <a href="https://h5.m.jd.com/babelDiy/Zeus/3TF5zx1uKaXie125DCh3jU4sYWUy/index.html#/">
@@ -27,10 +27,6 @@ export default {};
   overflow: hidden;
   margin-top: .3rem;
   .exp-container {
-    position: relative;
-    margin-left: 0.5rem;
-    margin-right: 0.5rem;
-    margin-bottom: 0.5rem;
     .container-items{
       border-radius: 0.3rem;
       width: 100%;

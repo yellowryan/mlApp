@@ -6,7 +6,7 @@
         alt
       />
     </div>
-    <div class="daily-container">
+    <div class="container daily-container">
       <daily-item v-for="(item,index) in dailyList" :key="index">
         <a :href="item.link" slot="daily-item-link" class="daily-item-link">
           <div class="real-show">
@@ -44,10 +44,6 @@ export default {
 
 <style lang="less" scoped>
 .daily-container {
-  position: relative;
-  margin-left: 0.5rem;
-  margin-right: 0.5rem;
-  margin-bottom: 0.5rem;
   height: 12rem;
   display: flex;
   flex-wrap: wrap;
@@ -91,12 +87,6 @@ export default {
         p {
           color: #222222;
           overflow: hidden;
-          display: -webkit-box;
-          -webkit-line-clamp: 1;
-          -webkit-box-orient: vertical;
-          display: box;
-          line-clamp: 1;
-          box-orient: vertical;
           font-size: 0.6rem;
           line-height: 0.825rem;
           height: 0.75rem;

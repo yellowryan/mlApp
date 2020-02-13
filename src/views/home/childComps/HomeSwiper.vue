@@ -11,7 +11,6 @@
 
 <style lang="less" scoped>
     .slider-wrapper{
-      padding-top:2.5rem;
       font-size: 0;
       width: 100%;
       overflow: hidden;
@@ -52,7 +51,7 @@ export default {
          {
            path:"ceshi",
           id:"002",
-          src:"imgs/swiper/2.jpg"
+          src:"imgs/swiper/9.jpg"
         },
          {
            path:"ceshi",
