@@ -4,7 +4,9 @@
     <scroll class="category-list-scroll">
       <category-list></category-list>
     </scroll>
-    <category-content></category-content>
+    <scroll class="category-item-scroll">
+      <category-content :categoryList="categoryList"></category-content>
+    </scroll>
     <category-tab-bar></category-tab-bar>
   </div>
 </template>
@@ -16,6 +18,8 @@ import CategoryList from "./childComps/CategoryList";
 import CategoryContent from "./childComps/CategoryContent";
 
 import Scroll from "../../components/commom/scroll/Scroll";
+
+import { getCategoryList } from "../../network/category";
 export default {
   components: {
     CategoryTabBar,
@@ -23,6 +27,21 @@ export default {
     CategoryList,
     CategoryContent,
     Scroll
+  },
+  data() {
+    return {
+      categoryList: []
+    };
+  },
+  methods: {
+    getCategoryList() {
+      getCategoryList().then(res => {
+        this.categoryList = res.data.category.items;
+      });
+    }
+  },
+  created() {
+    this.getCategoryList();
   }
 };
 </script>
@@ -33,8 +52,13 @@ export default {
   overflow: hidden;
 }
 .category-list-scroll {
-  display: inline-block;
+  float: left;
   height: calc(100% - 44px - 45px);
   overflow: hidden;
+}
+.category-item-scroll {
+  height: calc(100% - 44px - 45px);
+  margin-left:85px;
+   overflow: hidden;
 }
 </style>

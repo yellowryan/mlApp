@@ -4,8 +4,8 @@
       <div class="title-wrapper">
         <a href="https://wqs.jd.com/portal/wx/seckill_m/index.shtml?st=1" class="seckill-left-link">
           <div class="seckill-title-img"></div>
-          <strong>12点场</strong>
-          <sec-kill-time></sec-kill-time>
+          <strong>{{hours}}点场</strong>
+          <sec-kill-time @getHours="getHours"></sec-kill-time>
         </a>
         <a href="https://wqs.jd.com/portal/wx/seckill_m/index.shtml?st=1" class="seckill-more-link">
           更多秒杀
@@ -24,6 +24,16 @@ import SecKillTime from "./SecKIllTime";
 export default {
   components: {
     SecKillTime
+  },
+  data(){
+    return {
+      hours : 0
+    }
+  },
+  methods:{
+    getHours(hours){
+      this.hours = hours;
+    }
   }
 };
 </script>

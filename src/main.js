@@ -9,6 +9,8 @@ Vue.config.productionTip = false
 
 Vue.use(vueSwiper)
 
+Vue.prototype.$bus = new Vue()
+
 new Vue({
     router,
     store,

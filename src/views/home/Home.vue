@@ -11,6 +11,7 @@
       @pullingUp="loadMore"
     >
       <home-swiper />
+      <home-banner></home-banner>
       <home-nav :navIcon="navIcon"></home-nav>
       <home-seckill :seckillList="seckillList"></home-seckill>
       <home-explore />
@@ -38,6 +39,7 @@
 import Advert from "./childComps/HomeAdvert";
 import Search from "./childComps/HomeSearch";
 import Swiper from "./childComps/HomeSwiper";
+import Banner from "./childComps/HomeBanner";
 import Navigation from "./childComps/HomeNavigation";
 import TabBar from "./childComps/HomeTabBar";
 import SecKill from "./childComps/HomeSeckill";
@@ -56,13 +58,14 @@ import {
   getRecommendList
 } from "../../network/home";
 
-import {debounce} from "../../assets/utils/utils"
+import { debounce } from "../../assets/utils/utils";
 
 export default {
   components: {
     "home-advert": Advert,
     "home-search": Search,
     "home-swiper": Swiper,
+    "home-banner": Banner,
     "home-nav": Navigation,
     "home-tabbar": TabBar,
     "home-seckill": SecKill,
@@ -82,8 +85,8 @@ export default {
         list: []
       },
       isShowBackTop: false,
-      fresh:null,
-      scrollY:0
+      fresh: null,
+      scrollY: 0
     };
   },
   created() {
@@ -93,29 +96,26 @@ export default {
     this.getRecommendList();
   },
   methods: {
-
     homeScroll(position) {
-     if(-position.y > 1000) {
-       this.isShowBackTop = true
-     }else{
-       this.isShowBackTop = false
-     }
-     
-     if( -position.y > 0) {
-       this.$refs.search.$el.style.backgroundColor = '#e43031'
-     }else{
-       this.$refs.search.$el.style.backgroundColor = 'transparent'
-     }
+      if (-position.y > 1000) {
+        this.isShowBackTop = true;
+      } else {
+        this.isShowBackTop = false;
+      }
 
+      if (-position.y > 0) {
+        this.$refs.search.$el.style.backgroundColor = "#e43031";
+      } else {
+        this.$refs.search.$el.style.backgroundColor = "transparent";
+      }
     },
 
     backClick() {
       this.$refs.scroll.scrollTo(0, 0);
     },
 
- 
     homeImgLoaded() {
-      this.fresh()
+      this.fresh();
     },
 
     /**
@@ -159,18 +159,16 @@ export default {
       this.getRecommendList();
     }
   },
-  mounted(){  
-    this.fresh = debounce(this.$refs.scroll.refresh,100);
+  mounted() {
+    this.fresh = debounce(this.$refs.scroll.refresh, 100);
   },
-  activated(){
-    this.$refs.scroll.scrollTo(0,this.scrollY,0)
+  activated() {
+    this.$refs.scroll.scrollTo(0, this.scrollY, 0);
     // this.$refs.scroll.refresh();
-    
   },
-  deactivated(){
-    this.scrollY = this.$refs.scroll.scroll.y
+  deactivated() {
+    this.scrollY = this.$refs.scroll.scroll.y;
   }
-
 };
 </script>
 

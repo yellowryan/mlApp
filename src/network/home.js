@@ -1,4 +1,4 @@
-import {request} from "./require"
+import {request} from "./request"
 
 
 export function getIcons(){

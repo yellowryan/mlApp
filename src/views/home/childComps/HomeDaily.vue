@@ -38,6 +38,10 @@ export default {
   components: {
     Daily,
     DailyItem
+  },
+  mounted(){
+    console.log(this.dailyList);
+    
   }
 };
 </script>

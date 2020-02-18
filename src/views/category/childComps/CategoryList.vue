@@ -35,7 +35,7 @@ export default {
         "内衣配饰",
         "食品生鲜",
         "酒水饮料",
-        "家具家装"
+        "奢侈品"
       ],
       currentIndex: 0
     };
@@ -43,6 +43,7 @@ export default {
   methods: {
     itemClick(index) {
       this.currentIndex = index;
+      this.$bus.$emit('itemClick',index)
     }
   }
 };
@@ -50,7 +51,7 @@ export default {
 
 <style lang="less" scoped>
 .category-list {
-  width: 86px;
+  width: 85px;
   min-width: 76px;
   height: auto;
   overflow-y: auto;

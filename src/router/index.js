@@ -9,7 +9,7 @@ const My = () => import('../views/my/My.vue')
 const Detail = () =>import('../views/details/Detail.vue')
 Vue.use(VueRouter)
 
-export default new VueRouter({
+const router =  new VueRouter({
     mode: 'history',
     base: process.env.BASE_URL,
     routes: [{
@@ -18,11 +18,17 @@ export default new VueRouter({
         }, {
             path: '/home',
             component: Home,
-            name: 'home'
+            name: 'home',
+            meta:{
+                title : "首页"
+            }
         }, {
             path: '/category',
             name: 'category',
-            component: Category
+            component: Category,
+            meta:{
+                title : "分类"
+            }
         }, {
             path: '/discovery',
             name: 'discovery',
@@ -30,7 +36,10 @@ export default new VueRouter({
         }, {
             path: '/cart',
             name: 'cart',
-            component: Cart
+            component: Cart,
+            meta:{
+                title : "购物车"
+            }
         }, {
             path: '/my',
             name: 'my',
@@ -39,7 +48,10 @@ export default new VueRouter({
         {
             path: '/detail/:id',
             name: 'detail',
-            component: Detail
+            component: Detail,
+            meta:{
+                title:"详情页"
+            }
         },
         {
             path: '/ceshi/:userId',
@@ -53,3 +65,9 @@ export default new VueRouter({
 
     ],
 })
+router.beforeEach((to,from,next)=>{
+        document.title = to.meta.title
+        next() 
+    });
+
+export default router

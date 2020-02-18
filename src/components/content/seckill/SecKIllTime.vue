@@ -1,6 +1,6 @@
 <template>
   <div id="seckill-time">
-    <div class="seckill hours">{{hours>=10?hours:"0"+hours}}</div>
+    <div class="seckill hours">{{"0"+(hours-secHours+1)}}</div>
     <span class="seckill-time-separator">:</span>
     <div class="seckill minutes">{{minutes>=10?minutes:"0"+minutes}}</div>
     <span class="seckill-time-separator">:</span>
@@ -12,24 +12,35 @@
 export default {
   data() {
     return {
-      hours: 1,
       minutes: 0,
       seconds: 0,
-      timer: null
+      timer: null,
+      timer2:null,
+      hours:0,
+      secHours:0,
     };
   },
   methods: {
     changTime() {
+      this.secHours = new Date().getHours();
       const m = 59 - new Date().getMinutes();
       const s = 60 - new Date().getSeconds();
+      const h = new Date().getHours();
       this.minutes = m;
       this.seconds = s;
+      if(h%2===0){
+        this.hours = h;
+      }else{
+        this.hours = h - 1;
+      }
+      this.$emit("getHours",this.hours)
     }
   },
   mounted() {
     this.$nextTick(() => {
       this.timer = setInterval(this.changTime, 1000);
     });
+    
   }
 };
 </script>
