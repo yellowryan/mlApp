@@ -4,7 +4,7 @@
       <div class="banner-container">
         <div class="show-image">
           <img
-            src="https://m.360buyimg.com/mobilecms/s750x200_jfs/t1/85973/16/12205/116858/5e440f8bEd509ca96/5875919340527b33.png.webp"
+            src="https://m.360buyimg.com/mobilecms/s750x200_jfs/t1/85973/16/12205/116858/5e440f8bEd509ca96/5875919340527b33.png"
             alt
           />
         </div>

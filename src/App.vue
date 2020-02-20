@@ -1,12 +1,13 @@
 <template>
   <div id="app">
-    <keep-alive exclude="Detail">
-      <router-view />
+    <keep-alive>
+        <router-view />
     </keep-alive>
   </div>
 </template>
 
 <style lang="less">
+
 html {
   font-size: 25px;
 }

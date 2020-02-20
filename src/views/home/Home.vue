@@ -10,7 +10,7 @@
       :pullUpLoad="true"
       @pullingUp="loadMore"
     >
-      <home-swiper />
+      <home-swiper ref="swiper" />
       <home-banner></home-banner>
       <home-nav :navIcon="navIcon"></home-nav>
       <home-seckill :seckillList="seckillList"></home-seckill>
@@ -109,9 +109,9 @@ export default {
         this.$refs.search.$el.style.backgroundColor = "transparent";
       }
     },
-
+  // 返回顶部按钮
     backClick() {
-      this.$refs.scroll.scrollTo(0, 0);
+      this.$refs.scroll.scrollTo(0, 0, 800);
     },
 
     homeImgLoaded() {
@@ -163,8 +163,9 @@ export default {
     this.fresh = debounce(this.$refs.scroll.refresh, 100);
   },
   activated() {
+    this.$refs.scroll.refresh();
     this.$refs.scroll.scrollTo(0, this.scrollY, 0);
-    // this.$refs.scroll.refresh();
+    this.$refs.swiper.swiperOption.autoplay = true
   },
   deactivated() {
     this.scrollY = this.$refs.scroll.scroll.y;

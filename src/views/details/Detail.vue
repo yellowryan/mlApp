@@ -1,6 +1,7 @@
 <template>
   <div class="detail">
       <detail-search></detail-search>
+
   </div>
 </template>
 
@@ -12,12 +13,15 @@ export default {
     },
     data(){
         return {
-            id : 0,
+            id : null,
         }
     },
     created() {
       this.id = this.$route.params.id  
     },
+    destroyed(){
+        console.log("des"); 
+    }
 }
 </script>
 

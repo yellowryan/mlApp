@@ -42,6 +42,10 @@ export default {
   },
   created() {
     this.getCategoryList();
+  },
+  destroyed(){
+    console.log("des");
+    
   }
 };
 </script>
