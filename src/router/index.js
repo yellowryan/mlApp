@@ -20,7 +20,7 @@ const router =  new VueRouter({
             component: Home,
             name: 'home',
             meta:{
-                title : "首页"
+                title : "首页 -- 麋鹿商城"
             }
         }, {
             path: '/category',

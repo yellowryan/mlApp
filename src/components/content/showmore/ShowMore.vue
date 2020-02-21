@@ -60,11 +60,11 @@ export default {
 <style lang="less" scoped>
 #shortcut-container {
   height: 0;
-  position: relative;
 }
 .shortcut-ul {
+  z-index: 99;
   position: absolute;
-  top: 12px;
+  top: 48px;
   right: 12px;
   width: 125px;
   border-radius: 4px;

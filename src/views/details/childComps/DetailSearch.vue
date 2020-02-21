@@ -6,9 +6,10 @@
       </div>
       <div slot="right" class="icon-container" @click="isShow =!isShow">
         <span class="detail-icon detail-more"></span>
+        <show-more v-show="isShow"></show-more>
       </div>
     </search>
-    <show-more v-show="isShow"></show-more>
+    
   </div>
 </template>
 

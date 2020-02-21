@@ -24,7 +24,7 @@ export default {
     changTime() {
       this.secHours = new Date().getHours();
       const m = 59 - new Date().getMinutes();
-      const s = 60 - new Date().getSeconds();
+      const s = 59 - new Date().getSeconds();
       const h = new Date().getHours();
       this.minutes = m;
       this.seconds = s;

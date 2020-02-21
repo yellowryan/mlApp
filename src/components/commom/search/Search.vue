@@ -14,6 +14,11 @@
     </header>
 
 </template>
+<script>
+export default {
+  
+}
+</script>
 
 <style lang="less" scoped>
     .clearfix::after{
@@ -24,11 +29,11 @@
     .serach-wrapper{
         display: block;
         width: 100%;
-        //  position: fixed;
-        // top: 0;
-        // left: 0;
-        // right: 0;
-        // z-index: 5;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 5;
         .header-content{
             width: 100%;
             height: 100%;
@@ -46,7 +51,7 @@
                     width: 2.2rem;
                     margin-left: -100%;
                     position: relative;
-                    left: -2rem;
+                    left: -1.8rem;
                     height: 2.2rem;
                     line-height: 2.2rem;
                 }

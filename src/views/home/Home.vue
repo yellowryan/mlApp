@@ -1,7 +1,7 @@
 <template>
   <div class="main">
     <!-- <home-advert /> -->
-    <home-search ref="search" />
+    <home-search ref="search"/>
     <scroll
       class="home-content"
       @scroll="homeScroll"
@@ -25,7 +25,7 @@
 
 <style lang="less" scoped>
 .main {
-  // padding-top: 50px;
+  padding-top: 44px;
   height: 100%;
   background-image: url("https://m.360buyimg.com/mobilecms/s1125x939_jfs/t1/110333/10/4009/93682/5e182592Ef376596f/e8a6fcffca6322e2.jpg");
   //  https://m.360buyimg.com/mobilecms/s1125x939_jfs/t1/110333/10/4009/93682/5e182592Ef376596f/e8a6fcffca6322e2.jpg
@@ -181,7 +181,7 @@ export default {
   margin-bottom: 0.5rem;
 }
 .home-content {
-  height: calc(100% - 44px - 44px);
+  height: calc(100% - 44px);
   overflow: hidden;
 }
 </style>

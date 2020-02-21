@@ -52,16 +52,17 @@ export default {
 
 <style lang="less" scoped>
 #category {
+  padding-top: 44px;
   height: 100%;
   overflow: hidden;
 }
 .category-list-scroll {
   float: left;
-  height: calc(100% - 44px - 45px);
+  height: calc(100% - 44px);
   overflow: hidden;
 }
 .category-item-scroll {
-  height: calc(100% - 44px - 45px);
+  height: calc(100% - 44px);
   margin-left:85px;
    overflow: hidden;
 }
