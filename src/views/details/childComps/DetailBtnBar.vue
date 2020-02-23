@@ -1,5 +1,7 @@
 <template>
-    <div>123</div>
+    <div class="detailBar">
+        <div></div>
+    </div>
 </template>
 
 <script>
