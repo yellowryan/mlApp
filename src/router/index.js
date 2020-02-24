@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 const Home = () => import('../views/home/Home.vue')
-const Ceshi = () => import('../components/Ceshi.vue')
 const Category = () => import('../views/category/Category.vue')
 const Discovery = () => import('../views/discovery/Discovery.vue')
 const Cart = () => import('../views/cart/Cart.vue')
@@ -54,10 +53,6 @@ const router =  new VueRouter({
             }
         },
         {
-            path: '/ceshi/:userId',
-            name: 'ceshi',
-            component: Ceshi
-        }, {
             path: '*',
             component: () =>
                 import ('@/components/Error404.vue')

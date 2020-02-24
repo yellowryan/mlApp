@@ -12,7 +12,6 @@
     <detail-buy-area :goodsInfo="goodsInfo"></detail-buy-area>
     <detail-comment :commentInfo="commentInfo" :commentContent="commentContent" ref="comment"></detail-comment>
     <detail-shop-info :shopInfo="shopInfo"></detail-shop-info>
-
     <detail-guess :guessLike="guessLike" ref="guess"></detail-guess>
     <detail-fix @itemClick="itemClick"></detail-fix>
     <div class="bg" :style="{height:nowHeight}" ref="bg">
@@ -28,7 +27,7 @@
       </div>
     </div>
     <back-top v-show="isShow" @click.native="backTopClick"></back-top>
-    <detail-btn-bar></detail-btn-bar>
+    <detail-btn-bar @addToCart="addToCart"></detail-btn-bar>
   </div>
 </template>
 
@@ -109,6 +108,7 @@ export default {
   methods: {
     getDetailInformation() {
       getDetailInformation(this.id).then(res => {
+        //轮播图的数据
         this.topImageList = res.data.detailInfo.topImage;
 
         this.banner = res.data.detailInfo.banner;
@@ -168,6 +168,22 @@ export default {
     // 根据导航条点击的item跳转到相应的位置
     spanClick(index) {
       window.scrollTo(0, this.offsetTopList[index]);
+    },
+
+    // 点击加入购物车后的动作
+    addToCart(){
+      const product={}
+
+      product.img = this.goodsInfo.img 
+      product.name = this.goodsInfo.name
+      product.price = this.goodsInfo.price
+      product.id = this.goodsInfo.id
+      product.discount = this.goodsInfo.discount
+      product.count = +this.goodsInfo.count
+      product.shopName = this.shopInfo.name
+      product.type = this.goodsInfo.type
+      product.isSelected = this.goodsInfo.isSelected
+      this.$store.commit('addCart',product)
     }
   },
   watch: {
@@ -197,4 +213,5 @@ export default {
     transition: all 0.3s ease-in-out;
   }
 }
+
 </style>

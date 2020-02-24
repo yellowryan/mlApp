@@ -2,7 +2,7 @@
   <div class="slider-wrapper">
      <swiper :options="swiperOption">
         <swiper-slide class="swiper-slide" v-for="item in slide" :key="item.id">
-          <router-link :to="{name:item.path,params:{userId:item.id}}"><img :src="item.src"></router-link>
+        <img :src="item.src">
         </swiper-slide>
         <div class="swiper-pagination"  slot="pagination"></div>   <!-- 分页 -->
       </swiper>
@@ -44,12 +44,10 @@ export default {
       // 图片地址数组
       slide: [
         {
-          path:"ceshi",
           id:"001",
           src:"imgs/swiper/1.jpg"
         },
          {
-           path:"ceshi",
           id:"002",
           src:"imgs/swiper/9.jpg"
         },
@@ -59,27 +57,22 @@ export default {
           src:"imgs/swiper/3.jpg"
         },
          {
-           path:"ceshi",
           id:"004",
           src:"imgs/swiper/4.jpg"
         },
          {
-           path:"ceshi",
           id:"005",
           src:"imgs/swiper/5.jpg"
         },
          {
-           path:"ceshi",
           id:"006",
           src:"imgs/swiper/6.jpg"
         },
          {
-           path:"ceshi",
           id:"007",
           src:"imgs/swiper/7.jpg"
         },
          {
-           path:"ceshi",
           id:"008",
           src:"imgs/swiper/8.jpg"
         },

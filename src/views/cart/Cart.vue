@@ -1,15 +1,24 @@
 <template>
-  <div>
-      我是购物车页面
+  <div id="cart">
+      <cart-search></cart-search>
+      <cart-goods-list></cart-goods-list>
   </div>
 </template>
 
 <script>
+import CartSearch from './childComps/CartSearch'
+import CartGoodsList from './childComps/CartGoodsList'
 export default {
-
+  components:{
+    CartSearch,
+    CartGoodsList
+  }
 }
 </script>
 
-<style>
-
+<style lang="less" scoped>
+  #cart{
+    padding-top: 44px;
+    background: #f7f7f7;
+  }
 </style>

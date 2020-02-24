@@ -13,9 +13,15 @@
         ],
         "banner":"https://img12.360buyimg.com/ling/jfs/t1/102067/25/11786/147367/5e49fc1eE95e59f40/df0c55b6ca34f83b.jpg",
         "goodsInfo":{
+            "id":"001",
             "price":"188",
+            "count":"1",
+            "discount":"满2件8.5折",
+            "isSelected":false,
+            "type":"小号305mm高340mm(不带光源)",
             "name":"木缘人新古典中式吊灯实木仿古中式宫灯复古灯笼实木创意个性走廊过道阳台火锅店餐厅灯具中国风茶室小吊灯 小号305mm高340mm（不带光源）",
-            "desc":"CCTV优选品牌，精雕细琢，件件匠师艺术作品"
+            "desc":"CCTV优选品牌，精雕细琢，件件匠师艺术作品",
+            "img":"https://img10.360buyimg.com/mobilecms/s372x372_jfs/t3280/261/505012737/157347/eef74eec/57b9b5dbNf9d4aa5b.jpg!q70.dpg"
         },
         "commentInfo":{
             "good":"99%",
