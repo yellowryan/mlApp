@@ -14,7 +14,11 @@
           <p class="title">购满399元，中国内地包邮</p>
         </div>
         <div class="goods">
-          <i class="icon_select" :class="{selected:item.isSelected}" @click="item.isSelected = !item.isSelected" ></i>
+          <i
+            class="icon_select"
+            :class="{selected:item.isSelected}"
+            @click="item.isSelected = !item.isSelected"
+          ></i>
           <img :src="item.img" class="image" />
           <div class="content">
             <div class="name">{{item.name}}</div>
@@ -31,12 +35,12 @@
                 <span
                   class="decrease"
                   :class="{disabled:item.count<=1?true: false}"
-                  @click.stop="item.count-=1"
+                  @click.stop="decreaseClick(item.id)"
                 ></span>
                 <div class="input_wrap">
-                  <input type="number" class="num" :value="item.count" />
+                  <input type="number" class="num" v-model="item.count" />
                 </div>
-                <span class="add" @click.stop="item.count+=1"></span>
+                <span class="add" @click.stop="addClick(item.id)"></span>
               </div>
             </div>
             <div class="delete">
@@ -51,17 +55,47 @@
 
 <script>
 import VipBar from "../../../components/commom/vip/VipBar";
+import { mapGetters } from "vuex";
 export default {
   components: {
     VipBar
   },
-  methods:{
-    deleteClick(id){
-      this.$store.state.cartList.forEach((item,index)=>{
-        if(item.id == id){
-           this.$store.state.cartList.splice(index,1);
+  computed: {
+    ...mapGetters(["cartList"])
+  },
+  methods: {
+    addClick(id) {
+      this.cartList.forEach(item => {
+        if (item.id == id) {
+          item.count += 1;
+          localStorage.setItem(
+            "cartList",
+            JSON.stringify(this.$store.state.cartList)
+          );
         }
-      })
+      });
+    },
+    decreaseClick(id) {
+      this.cartList.forEach(item => {
+        if (item.id == id) {
+          item.count == 1 ? 1 : (item.count -= 1);
+          localStorage.setItem(
+            "cartList",
+            JSON.stringify(this.$store.state.cartList)
+          );
+        }
+      });
+    },
+    deleteClick(id) {
+      this.cartList.forEach((item, index) => {
+        if (item.id == id) {
+          this.cartList.splice(index, 1);
+          localStorage.setItem(
+            "cartList",
+            JSON.stringify(this.$store.state.cartList)
+          );
+        }
+      });
     }
   }
 };
@@ -172,7 +206,6 @@ export default {
           height: 100%;
           &::after {
             position: absolute;
-            top: 0;
             content: "";
             margin-left: -10px;
             background-image: url(https://wq.360buyimg.com/wxsq_trade/cart_vue/main/images/sprite.img_default_437_9b91ce47.png);

@@ -42,7 +42,10 @@ const router =  new VueRouter({
         }, {
             path: '/my',
             name: 'my',
-            component: My
+            component: My,
+            meta:{
+                title:"我的麋鹿"
+            }
         },
         {
             path: '/detail/:id',

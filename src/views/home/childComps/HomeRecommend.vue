@@ -11,7 +11,7 @@
         <a href="javascript:;" slot="recommend-item-link" class="recommend-link">
           <div class="recommend-goods">
             <div class="goods-img">
-              <img :src="item.src" alt="" @load="imgLoaded" />
+              <img v-lazy="item.src" @load="imgLoaded" />
             </div>
             <span class="goods-text">{{item.goodsText}}</span>
             <p class="goods-info">

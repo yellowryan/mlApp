@@ -2,16 +2,19 @@
   <div id="cart">
       <cart-search></cart-search>
       <cart-goods-list></cart-goods-list>
+      <cart-btn-bar></cart-btn-bar>
   </div>
 </template>
 
 <script>
 import CartSearch from './childComps/CartSearch'
 import CartGoodsList from './childComps/CartGoodsList'
+import CartBtnBar from './childComps/CartBtnBar'
 export default {
   components:{
     CartSearch,
-    CartGoodsList
+    CartGoodsList,
+    CartBtnBar
   }
 }
 </script>
