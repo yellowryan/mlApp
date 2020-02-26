@@ -1,7 +1,7 @@
 <template>
   <div class="product_intro">
       <div class="img_display" v-for="(url, index) of introduction" :key="index">
-            <img v-lazy="url" @load="introImgLoaded">
+            <img :src="url" @load="introImgLoaded">
       </div>
   </div>
 </template>

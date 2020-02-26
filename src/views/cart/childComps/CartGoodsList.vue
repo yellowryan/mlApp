@@ -35,12 +35,12 @@
                 <span
                   class="decrease"
                   :class="{disabled:item.count<=1?true: false}"
-                  @click.stop="decreaseClick(item.id)"
+                  @click="decreaseClick(item.id)"
                 ></span>
                 <div class="input_wrap">
                   <input type="number" class="num" v-model="item.count" />
                 </div>
-                <span class="add" @click.stop="addClick(item.id)"></span>
+                <span class="add" @click="addClick(item.id)"></span>
               </div>
             </div>
             <div class="delete">

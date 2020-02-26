@@ -184,6 +184,8 @@ export default {
       product.type = this.goodsInfo.type
       product.isSelected = this.goodsInfo.isSelected
       this.$store.commit('addCart',product)
+
+      this.$toast.addCart("加入购物车成功")
     }
   },
   watch: {
