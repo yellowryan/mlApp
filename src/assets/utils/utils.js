@@ -14,3 +14,17 @@ export function debounce(fun,delay){
         },delay)
     }
 }
+
+
+export default throttle(fun,wait){
+    let prev = 0;
+    return function(...args){
+        let that = this;
+        let now = +new Date();
+        if(now - prev > wait){
+            fun.apply(that,args);
+            prev = now;
+        }
+    }
+   
+}
