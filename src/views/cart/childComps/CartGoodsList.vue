@@ -170,10 +170,10 @@ export default {
           text-align: center;
           border-radius: 3px;
           &::before {
+            content: "";
             position: absolute;
             left: 7px;
             bottom: -4px;
-            content: "";
             display: block;
             border-left: 4px solid transparent;
             border-right: 4px solid transparent;

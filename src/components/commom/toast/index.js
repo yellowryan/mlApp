@@ -6,7 +6,7 @@ const obj = {
         const ToastConstructor = Vue.extend(Toast)
 
         //创建组件对象的实例
-        const toast = new ToastConstructor
+        const toast = new ToastConstructor()
 
         toast.$mount(document.createElement('div'))
 

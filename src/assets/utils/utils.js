@@ -16,7 +16,7 @@ export function debounce(fun,delay){
 }
 
 
-export default throttle(fun,wait){
+export function throttle(fun,wait){
     let prev = 0;
     return function(...args){
         let that = this;

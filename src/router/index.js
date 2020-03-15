@@ -5,6 +5,7 @@ const Category = () => import('../views/category/Category.vue')
 const Discovery = () => import('../views/discovery/Discovery.vue')
 const Cart = () => import('../views/cart/Cart.vue')
 const My = () => import('../views/my/My.vue')
+const Login = () => import('../views/login/Login.vue')
 const Detail = () =>import('../views/details/Detail.vue')
 Vue.use(VueRouter)
 
@@ -31,7 +32,10 @@ const router =  new VueRouter({
         }, {
             path: '/discovery',
             name: 'discovery',
-            component: Discovery
+            component: Discovery,
+            meta:{
+                title : "我的世界"
+            }
         }, {
             path: '/cart',
             name: 'cart',
@@ -56,6 +60,14 @@ const router =  new VueRouter({
             }
         },
         {
+            path: '/login',
+            name: 'login',
+            component: Login,
+            meta:{
+                title:"请登录"
+            }
+        },
+        {
             path: '*',
             component: () =>
                 import ('@/components/Error404.vue')
@@ -67,5 +79,6 @@ router.beforeEach((to,from,next)=>{
         document.title = to.meta.title
         next() 
     });
+
 
 export default router
