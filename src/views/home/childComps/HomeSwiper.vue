@@ -1,21 +1,29 @@
 <template>
-  <div class="slider-wrapper">
-     <swiper :options="swiperOption">
+<div class="swiper-contain">
+  <div class="slider-wrapper"  v-if='reRender'>
+     <swiper :options="swiperOption" :auto-update="true">
         <swiper-slide class="swiper-slide" v-for="item in slide" :key="item.id">
         <img :src="item.src">
         </swiper-slide>
         <div class="swiper-pagination"  slot="pagination"></div>   <!-- 分页 -->
       </swiper>
   </div>
+  <div v-else class="placeholder">
+    <img src="imgs/swiper/1.jpg" alt="">
+  </div>
+</div>
+
 </template>
 
 <style lang="less" scoped>
-    .slider-wrapper{
+  .swiper-contain{
+    height: 100%;
+    .slider-wrapper,.placeholder{
       font-size: 0;
       width: 100%;
       overflow: hidden;
       position: relative;
-        .swiper-slide img{
+          img{
           display: inline-block;
           width: 94%;
           border-radius: 0.4rem;
@@ -34,6 +42,8 @@
       width: 0.6rem;
       transition: width 0.1s ease-in-out
     }
+  }
+    
 </style>
 
 <script>
@@ -86,7 +96,6 @@ export default {
           el: '.swiper-pagination',
           clickable: false,
           type:"bullets"
-
         },
         //设置点击箭头
         navigation: {
@@ -106,8 +115,15 @@ export default {
         preventClicksPropagation: true,
         //鼠标模拟手机触摸。默认为true，Swiper接受鼠标点击、拖动。
          simulateTouch: false,
-      }
+      },
+      reRender:true
     }
+  },
+  activated(){
+      this.reRender = false;
+        setTimeout(() => {
+            this.reRender = true;
+        }, 100);
   }
 }
 </script>

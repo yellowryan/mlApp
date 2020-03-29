@@ -28,3 +28,33 @@ export function throttle(fun,wait){
     }
    
 }
+
+export function getCookie(name){
+    const strCookies = document.cookie;
+    //截取变成cookie数组
+    const array = strCookies.split(';');
+    //循环每个cookie
+    for (let i = 0; i < array.length; i++) {
+        //将cookie截取成两部分
+        const item = array[i].split("=");
+        //判断cookie的name 是否相等
+        if (item[0] == name) {
+            return item[1];
+        }
+    }
+    return null;
+}
+
+export function removeCookie(name){
+    setCookie(name,'',-1)
+}
+
+export function setCookie(name, value, days) {
+
+    var d = new Date;
+
+    d.setTime(d.getTime() + 24*60*60*1000*days);
+
+    window.document.cookie = name + "=" + value + ";path=/;expires=" + d.toGMTString();
+
+}

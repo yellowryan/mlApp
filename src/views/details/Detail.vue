@@ -49,6 +49,8 @@ import BackTop from "../../components/content/backTop/BackTop";
 import { getDetailInformation } from "../../network/detail";
 
 import { debounce } from "../../assets/utils/utils";
+
+import {ADD_CART} from '../../store/mutation-types'
 export default {
   name: "Detail",
   components: {
@@ -183,7 +185,7 @@ export default {
       product.shopName = this.shopInfo.name
       product.type = this.goodsInfo.type
       product.isSelected = this.goodsInfo.isSelected
-      this.$store.commit('addCart',product)
+      this.$store.commit(ADD_CART,product)
 
       this.$toast.addCart("加入购物车成功")
     }

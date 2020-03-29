@@ -15,7 +15,7 @@
             </div>
             <span class="goods-text">{{item.goodsText}}</span>
             <p class="goods-info">
-              <span class="goods-price">{{item.goodsPrice}}</span>
+               ￥<span class="goods-price">{{item.goodsPrice}}</span>
               <span class="goods-similar">{{item.similar}}</span>
             </p>
             <p class="goods-info"></p>
@@ -112,14 +112,14 @@ export default {
     overflow: hidden;
     position: relative;
     height: 26px;
+    color: #f23030;
     .goods-price {
-      color: #f23030;
       display: inline-block;
-      padding: 0 5px 0 4px;
       position: relative;
       top: 1px;
       height: 25px;
       line-height: 25px;
+      font-size:0.8rem;
     }
     .goods-similar {
       display: block;

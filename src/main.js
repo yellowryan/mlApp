@@ -10,14 +10,13 @@ import lazyload from 'vue-lazyload'
 
 import toast from 'components/commom/toast'
 
-
 Vue.config.productionTip = false
 
 Vue.use(vueSwiper)
 
 Vue.prototype.$bus = new Vue()
 
-fastClick.attach(document.body)
+// fastClick.attach(document.body)
 
 Vue.use(lazyload,{
     loading:require('./assets/img/ryan.png')

@@ -12,3 +12,20 @@ export function request(config){
     })
     return instance(config)
 }
+
+export  function ajax(url,data={},type='GET') {
+	if(type === 'GET'){
+		let subString = '';
+		Object.keys(data).forEach(key=>{
+			subString += data + "=" + data[key] + "&"
+		})
+
+		if(subString){
+			subString = subString.substring(0,subString.lastIndexOf('&'));
+			url = url + '?' + subString
+		}
+		return axios.get(url)
+	}else{
+		return axios.post(url,data)
+	}
+}

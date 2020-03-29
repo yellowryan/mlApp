@@ -39,10 +39,6 @@ export default {
     Daily,
     DailyItem
   },
-  mounted(){
-    console.log(this.dailyList);
-    
-  }
 };
 </script>
 

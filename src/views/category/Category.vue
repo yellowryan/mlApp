@@ -7,12 +7,12 @@
     <scroll class="category-item-scroll">
       <category-content :categoryList="categoryList"></category-content>
     </scroll>
-    <category-tab-bar></category-tab-bar>
+    <commom-tab-bar></commom-tab-bar>
   </div>
 </template>
 
 <script>
-import CategoryTabBar from "./childComps/CategoryTabBar";
+import CommomTabBar from "../../components/commom/tabbar/CommomTabBar";
 import CategorySearch from "./childComps/CategorySearch";
 import CategoryList from "./childComps/CategoryList";
 import CategoryContent from "./childComps/CategoryContent";
@@ -21,8 +21,9 @@ import Scroll from "../../components/commom/scroll/Scroll";
 
 import { getCategoryList } from "../../network/category";
 export default {
+  name:"Category",
   components: {
-    CategoryTabBar,
+    CommomTabBar,
     CategorySearch,
     CategoryList,
     CategoryContent,

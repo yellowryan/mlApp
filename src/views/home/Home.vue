@@ -41,7 +41,7 @@ import Search from "./childComps/HomeSearch";
 import Swiper from "./childComps/HomeSwiper";
 import Banner from "./childComps/HomeBanner";
 import Navigation from "./childComps/HomeNavigation";
-import TabBar from "./childComps/HomeTabBar";
+import CommomTabBar from "../../components/commom/tabbar/CommomTabBar";
 import SecKill from "./childComps/HomeSeckill";
 import Explore from "./childComps/HomeExplore";
 import Daily from "./childComps/HomeDaily";
@@ -61,13 +61,14 @@ import {
 import { debounce } from "../../assets/utils/utils";
 
 export default {
+  name:'Home',
   components: {
     "home-advert": Advert,
     "home-search": Search,
     "home-swiper": Swiper,
     "home-banner": Banner,
     "home-nav": Navigation,
-    "home-tabbar": TabBar,
+    "home-tabbar": CommomTabBar,
     "home-seckill": SecKill,
     "home-explore": Explore,
     "home-daily": Daily,
@@ -160,12 +161,12 @@ export default {
     }
   },
   mounted() {
+    this.$refs.scroll.refresh()
     this.fresh = debounce(this.$refs.scroll.refresh, 100);
   },
   activated() {
     this.$refs.scroll.refresh();
     this.$refs.scroll.scrollTo(0, this.scrollY, 0);
-    this.$refs.swiper.swiperOption.autoplay = true
   },
   deactivated() {
     this.scrollY = this.$refs.scroll.scroll.y;

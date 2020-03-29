@@ -18,16 +18,17 @@ export default {
       message: "",
       showBlock: false,
       showBtns: false,
-      outWidth: ""
+      outWidth: "",
     };
   },
   methods: {
-    addCart(message, duration = 2000) {
+    addCart(message, duration = 2000,fun) {
       this.showBlock = true;
       this.message = message;
       setTimeout(() => {
         this.showBlock = false;
         this.message = "";
+        fun&&fun()
       }, duration);
     }
   }
