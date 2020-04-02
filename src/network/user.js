@@ -8,3 +8,6 @@ export const reqLogin = (user) => ajax(`${BASE_URL}/login`,user,"POST")
 
 //自动登录
 export const reqAutoLogin = () => ajax(`${BASE_URL}/autoLogin`)
+
+//搜索商品列表
+export const reqGoodsList = (keywords) => ajax(`${BASE_URL}/goods/searchGood`,keywords,"POST")

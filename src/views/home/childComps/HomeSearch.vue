@@ -3,7 +3,7 @@
     <div slot="left" class="home-logo-display"></div>
     <div slot="center" class="home-search">
       <i class="iconfont icon-sousuo"></i>
-      <input type="text" placeholder="请输入关键词" autocomplete="off" />
+      <input type="text" placeholder="请输入关键词" autocomplete="off" @focus="searchFocus">
     </div>
     <i class="iconfont icon-imagevector user-icon" slot="right"></i>
   </search>
@@ -71,6 +71,15 @@ import Search from "../../../components/commom/search/Search";
 export default {
   components: {
     Search
+  },
+  data(){
+    return {
+    }
+  },
+  methods:{
+    searchFocus(){
+      this.$emit('homeFocus')
+    }
   }
 };
 </script>

@@ -1,7 +1,7 @@
 <template>
   <div class="main">
     <!-- <home-advert /> -->
-    <home-search ref="search"/>
+    <home-search ref="search" @homeFocus="homeFocus"/>
     <scroll
       class="home-content"
       @scroll="homeScroll"
@@ -9,7 +9,7 @@
       :probe-type="3"
       :pullUpLoad="true"
       @pullingUp="loadMore"
-    >
+      >
       <home-swiper ref="swiper" />
       <home-banner></home-banner>
       <home-nav :navIcon="navIcon"></home-nav>
@@ -18,20 +18,27 @@
       <home-daily :dailyList="dailyList"></home-daily>
       <home-recommend :recommendList="recommend.list" @imgLoaded="homeImgLoaded"></home-recommend>
     </scroll>
-    <back-top @click.native="backClick" v-show="isShowBackTop" />
-    <home-tabbar></home-tabbar>
+      <back-top @click.native="backClick" v-show="isShowBackTop" />
+      <home-tabbar></home-tabbar>
+      <transition name='fade'>
+         <router-view />
+      </transition>
+     
   </div>
+  
 </template>
 
 <style lang="less" scoped>
 .main {
   padding-top: 44px;
   height: 100%;
-  background-image: url("https://m.360buyimg.com/mobilecms/s1125x939_jfs/t1/110333/10/4009/93682/5e182592Ef376596f/e8a6fcffca6322e2.jpg");
-  //  https://m.360buyimg.com/mobilecms/s1125x939_jfs/t1/110333/10/4009/93682/5e182592Ef376596f/e8a6fcffca6322e2.jpg
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
+  background:url(https://m.360buyimg.com/mobilecms/s1125x939_jfs/t1/110333/10/4009/93682/5e182592Ef376596f/e8a6fcffca6322e2.jpg) center center/cover no-repeat
+}
+.fade-enter-active,.fade-leave-active{
+  transition:opacity .3s ease-in-out
+}
+.fade-enter,.fade-leave-to{
+  opacity:0
 }
 </style>
 
@@ -87,7 +94,7 @@ export default {
       },
       isShowBackTop: false,
       fresh: null,
-      scrollY: 0
+      scrollY: 0,
     };
   },
   created() {
@@ -110,7 +117,6 @@ export default {
         this.$refs.search.$el.style.backgroundColor = "transparent";
       }
     },
-  // 返回顶部按钮
     backClick() {
       this.$refs.scroll.scrollTo(0, 0, 800);
     },
@@ -157,7 +163,13 @@ export default {
     },
 
     loadMore() {
-      this.getRecommendList();
+      if(this.recommend.page <=2){
+        this.getRecommendList();
+      }
+    },
+
+    homeFocus(){
+      this.$router.push('/home/search').catch(error=>error)
     }
   },
   mounted() {

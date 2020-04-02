@@ -8,6 +8,7 @@ const My = () => import('../views/my/My.vue')
 const Login = () => import('../views/login/Login.vue')
 const Register = () => import('../views/register/Register.vue')
 const Detail = () =>import('../views/details/Detail.vue')
+const Search = () =>import('../views/home/childComps/HomeSubSearch.vue')
 
 Vue.use(VueRouter)
 
@@ -23,6 +24,12 @@ const router =  new VueRouter({
             path: '/home',
             component: Home,
             name: 'home',
+            children:[
+            {
+                path:'search',
+                component:Search,
+                name:'search',
+            }],
             meta:{
                 title : "首页 -- 麋鹿商城"
             }

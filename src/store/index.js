@@ -12,7 +12,9 @@ var cart = JSON.parse(localStorage.getItem('cartList') || '[]' )
 export default new Vuex.Store({
     state: {
         cartList:cart,
-        user:{}
+        user:{},
+        goodsList:[],
+        msg:''
     },
     getters,
     mutations,

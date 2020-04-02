@@ -50,52 +50,44 @@
         </div>
       </div>
     </div>
+    <confirm ref="confirm" regular="确定要删除此商品?" @confirmed="confirmed"></confirm>
   </div>
 </template>
 
 <script>
 import VipBar from "../../../components/commom/vip/VipBar";
+import Confirm from "../../../components/commom/confirm/Confirm"
 import { mapGetters } from "vuex";
+import {CART_GOOD_ADD,
+        CART_GOOD_DECREASE,
+        CART_GOOD_DELETE
+        } from '../../../store/mutation-types'
 export default {
   components: {
-    VipBar
+    VipBar,
+    Confirm
   },
   computed: {
     ...mapGetters(["cartList"])
   },
+  data(){
+    return {
+      id:null
+    }
+  },
   methods: {
     addClick(id) {
-      this.cartList.forEach(item => {
-        if (item.id == id) {
-          item.count += 1;
-          localStorage.setItem(
-            "cartList",
-            JSON.stringify(this.$store.state.cartList)
-          );
-        }
-      });
+      this.$store.commit(CART_GOOD_ADD,{id})
     },
     decreaseClick(id) {
-      this.cartList.forEach(item => {
-        if (item.id == id) {
-          item.count == 1 ? 1 : (item.count -= 1);
-          localStorage.setItem(
-            "cartList",
-            JSON.stringify(this.$store.state.cartList)
-          );
-        }
-      });
+      this.$store.commit(CART_GOOD_DECREASE,{id})
     },
     deleteClick(id) {
-      this.cartList.forEach((item, index) => {
-        if (item.id == id) {
-          this.cartList.splice(index, 1);
-          localStorage.setItem(
-            "cartList",
-            JSON.stringify(this.$store.state.cartList)
-          );
-        }
-      });
+      this.$refs.confirm.showConfirm()
+      this.id = id
+    },
+    confirmed(){
+      this.$store.commit(CART_GOOD_DELETE,{id:this.id})
     }
   }
 };

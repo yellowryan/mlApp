@@ -37,7 +37,6 @@ export default {};
         justify-content: center;
         align-items: center;
         position: relative;
-        height: 5rem;
         img {
           width: 100%;
           height: auto;

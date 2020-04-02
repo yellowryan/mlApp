@@ -1,15 +1,15 @@
 import {
-  USER_REGISTER, USER_LOGIN,USER_RESER
+  USER_REGISTER, USER_LOGIN, USER_RESER, GET_GOODS_LIST, RESET_GOODS_LIST
 }from './mutation-types'
 
-import {reqAutoLogin} from '../network/user'
+import {reqAutoLogin, reqGoodsList} from '../network/user'
 
 export default {
   userRegister({commit},user){
     commit(USER_REGISTER,{user})
   },
 
-  userLogin({commit},user){
+  userLogin({commit},user){ 
     commit(USER_LOGIN,user)
   },
 
@@ -25,5 +25,15 @@ export default {
 
   logOut({commit},name){
     commit(USER_RESER,name)
+  },
+
+  async goodsList({commit},keywords){
+    const response = await reqGoodsList({keywords})
+    const result = response.data
+    if(result.status===0){
+      commit(RESET_GOODS_LIST,result.msg)
+    }else{
+      commit(GET_GOODS_LIST,result.data)
+    }
   }
 }

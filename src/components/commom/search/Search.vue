@@ -45,6 +45,9 @@ export default {
                     width: 100%;
                     margin-top: 0.4rem;
                     position: relative;
+                    text-align: center;
+                    color: #000;
+                    font-size: 18px;
                 }
                 .left-container{
                     float: left;
