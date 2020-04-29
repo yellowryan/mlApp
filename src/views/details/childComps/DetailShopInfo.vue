@@ -109,7 +109,6 @@ export default {
       height: 30px;
       box-sizing: border-box;
       margin-right: 10px;
-      -webkit-flex-shrink: 0;
       flex-shrink: 0;
       img {
         position: absolute;
@@ -121,7 +120,6 @@ export default {
       }
     }
     .shop_name {
-      -webkit-flex-shrink: 1;
       flex-shrink: 1;
       overflow: hidden;
       font-size: 0;

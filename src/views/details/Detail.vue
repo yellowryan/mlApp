@@ -92,6 +92,7 @@ export default {
   created() {
     (this.id = this.$route.params.id), this.getDetailInformation();
 
+  //对获取高度进行防抖操作
     this.getOffsetTop = debounce(() => {
       this.offsetTopList.push(0);
       this.offsetTopList.push(

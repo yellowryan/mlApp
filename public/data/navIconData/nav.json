@@ -1,5 +1,5 @@
 [
-    [{ "id": "001", "url": "imgs/navLists/001.png", "title": "麋鹿新品" },
+    [{ "id": "001", "url":"imgs/navLists/001.png", "title": "麋鹿新品" },
         {
             "id": "002",
             "url": "imgs/navLists/002.png",

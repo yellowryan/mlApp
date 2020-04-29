@@ -166,6 +166,9 @@ export default {
         path:'/home'
       })
     }
+  },
+  deactivated(){
+    this.$store.commit(RESET_GOODS_LIST)
   }
 }
 </script>

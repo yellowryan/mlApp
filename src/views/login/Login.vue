@@ -16,6 +16,10 @@
             <span class="checkbtn" :class="{'off-pwd':isShow}" @click="pwdSwitch"></span>
             <span class='missing-pwd'>忘记密码</span>
           </p>
+          <p class="input-container" >
+            <input type='text' placeholder="请输入验证码" class="acc-input code" v-model="codeValue" >
+            <img :src="codeSrc" alt="" class="code" @click="changeCode">
+          </p>
         </div>
 
         <div class="notice"></div>
@@ -51,8 +55,10 @@ export default {
         pwdDisplay:'none',
         inputValue:'',
         pwdValue:'',
+        codeValue:'',
         isShow:false,
-        isActive:false
+        isActive:false,
+        codeSrc:'http://localhost:5000/getCode?time' + new Date().getTime()
       }
     },
     components:{
@@ -93,32 +99,46 @@ export default {
         }else if(!this.pwdValue){
            this.$refs.usertip.innerText='密码不能为空'
           return 
+        }else if(!this.codeValue){
+          this.$refs.usertip.innerText='验证码不能为空'
+          return
         }
          this.$refs.usertip.innerText=''
         const user = {
           username:this.inputValue,
-          password:this.pwdValue
+          password:this.pwdValue,
+          code:this.codeValue.toLowerCase()
         }
         const response = await reqLogin(user)
         const result = response.data
         if(result.status===0){
           this.$refs.usertip.innerText= result.msg
-        }else{
+          this.codeValue = ''
+          this.changeCode()
+        }else if(result.status===1){
           this.$store.dispatch('userLogin',result.data)
           this.$toast.addCart("登录成功",1000,()=>{
             this.$router.replace('/home')
           })
+        }else{
+          this.$refs.usertip.innerText= result.msg
+          this.codeValue = ''
+          this.changeCode()
         }
 
       },
       toRegister(){
         this.$router.push('/register')
+      },
+      changeCode(){
+        this.codeSrc = 'http://localhost:5000/getCode?time' + new Date().getTime()
       }
     },
     watch:{
       inputValue(){
         if(this.inputValue==""){
           this.userDisplay='none'
+          this.$refs.usertip.innerText= ''
         }else{
           this.userDisplay='block'
         }
@@ -180,15 +200,21 @@ export default {
     background: #fff;
     border-bottom: .05rem solid #efefef;
     .acc-input{
-    height: 100%;
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-    line-height: normal;
-    border-radius: 0;
-    border: 0;
-    font-size: 0.8rem;
-    outline: none;
+      height: 100%;
+      width: 50%;
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+      line-height: normal;
+      border-radius: 0;
+      border: 0;
+      font-size: 0.8rem;
+      outline: none;
+    }
+    .code{
+      display: inline-block;
+      position: relative;
+      top: -5px;
     }
     .tip{
       font-size: 14px;
@@ -204,27 +230,27 @@ export default {
     }
     .missing-pwd{
       position: absolute;
-    right: 0;
-    top: .625rem;
-    height: 1.15rem;
-    line-height: 1.15rem;
-    text-align: center;
-    border-left: 1px solid #ccc;
-    font-size: .7rem;
-    min-width: 5rem;
+      right: 0;
+      top: .625rem;
+      height: 1.15rem;
+      line-height: 1.15rem;
+      text-align: center;
+      border-left: 1px solid #ccc;
+      font-size: .7rem;
+      min-width: 5rem;
     }
     .checkbtn{
-    position: absolute;
-    right: 6.5rem;
-    top: .65rem;
-    width: 1.2rem;
-    height: 1.2rem;
-    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAMAAABg3Am1AAAAUVBMVEUAAADNzc3Ozs7W1tbNzc3Pz8/Nzc3MzMzNzc3MzMzNzc3Nzc3Nzc3Nzc3Nzc3MzMzNzc3Nzc3MzMzNzc3Ozs7Nzc3Ozs7R0dHX19f////MzMxg+QCeAAAAGnRSTlMA+zoKaiT28One25uCfXPIt6eRTD4zKiETA+EbngEAAACZSURBVEjH7czHDsMgEEXRoYMxuLf5/w8NJIvIlEjJLhJned9ooGma5je0p1+NG0GyQMUSxi1pHhGVgCKhwuiTuJMQjSjemzCRPc0cA00hQzUGPB9s7GRm98pmEruF3GUx0u58t9NpjOwFJQ6f5OjpwdhB/ShfxUHF2mFBt0IV6xUmVM/gE8a723eenecEnwYjpRkmLqBp/tgDwI4Nr7IO2JwAAAAASUVORK5CYII=);
-    background-repeat: no-repeat;
-    background-size: 100% auto;
-    z-index: 99;
-    &.off-pwd{
-      background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAMAAABg3Am1AAAAV1BMVEUAAADNzc3Q0NDNzc3Nzc3Nzc3Ozs7X19fNzc3Nzc3Nzc3Nzc3Nzc3Nzc3Ozs7Pz8/Pz8/Nzc3MzMzNzc3MzMzMzMzNzc3Ozs7Ozs7Ozs7V1dXNzc3MzMxIIVLAAAAAHHRSTlMA9RjJwmlkCO7oz72kfFQ1Iory2qt5bVg+KRKJvRKyKgAAAOlJREFUSMftVNcShCAMvAh2VLC3///OgwNGsN3kWffJJLtOGvm8eC6CiNEGoKEsCv6z4zBbHWRhfE/v03WHtL+RTNl6gmy64oegGbQbeRzzsaPahvCcX+ioCJz6hf5Hcc1ns++d2ZWiVP56OAaGWkXKQ/MT6U0qY0UEgETGqH6h/UhalX5lxLkuNg+MQhXS+nyuCLYZkm8Utn3K4J5ASA+x+WwjsFkR+S08AXXqIpuAOB2hnkBthC0LNgHYlqgdQQvQKaGLxrcVPzj8auCXD7/eR0W9uA9oAc3HPlHsEcCeGeQhQ57KF4/FFwhjLcIUtz4iAAAAAElFTkSuQmCC);
+      position: absolute;
+      right: 6.5rem;
+      top: .65rem;
+      width: 1.2rem;
+      height: 1.2rem;
+      background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAMAAABg3Am1AAAAUVBMVEUAAADNzc3Ozs7W1tbNzc3Pz8/Nzc3MzMzNzc3MzMzNzc3Nzc3Nzc3Nzc3Nzc3MzMzNzc3Nzc3MzMzNzc3Ozs7Nzc3Ozs7R0dHX19f////MzMxg+QCeAAAAGnRSTlMA+zoKaiT28One25uCfXPIt6eRTD4zKiETA+EbngEAAACZSURBVEjH7czHDsMgEEXRoYMxuLf5/w8NJIvIlEjJLhJned9ooGma5je0p1+NG0GyQMUSxi1pHhGVgCKhwuiTuJMQjSjemzCRPc0cA00hQzUGPB9s7GRm98pmEruF3GUx0u58t9NpjOwFJQ6f5OjpwdhB/ShfxUHF2mFBt0IV6xUmVM/gE8a723eenecEnwYjpRkmLqBp/tgDwI4Nr7IO2JwAAAAASUVORK5CYII=);
+      background-repeat: no-repeat;
+      background-size: 100% auto;
+      z-index: 99; 
+      &.off-pwd{
+        background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAMAAABg3Am1AAAAV1BMVEUAAADNzc3Q0NDNzc3Nzc3Nzc3Ozs7X19fNzc3Nzc3Nzc3Nzc3Nzc3Nzc3Ozs7Pz8/Pz8/Nzc3MzMzNzc3MzMzMzMzNzc3Ozs7Ozs7Ozs7V1dXNzc3MzMxIIVLAAAAAHHRSTlMA9RjJwmlkCO7oz72kfFQ1Iory2qt5bVg+KRKJvRKyKgAAAOlJREFUSMftVNcShCAMvAh2VLC3///OgwNGsN3kWffJJLtOGvm8eC6CiNEGoKEsCv6z4zBbHWRhfE/v03WHtL+RTNl6gmy64oegGbQbeRzzsaPahvCcX+ioCJz6hf5Hcc1ns++d2ZWiVP56OAaGWkXKQ/MT6U0qY0UEgETGqH6h/UhalX5lxLkuNg+MQhXS+nyuCLYZkm8Utn3K4J5ASA+x+WwjsFkR+S08AXXqIpuAOB2hnkBthC0LNgHYlqgdQQvQKaGLxrcVPzj8auCXD7/eR0W9uA9oAc3HPlHsEcCeGeQhQ57KF4/FFwhjLcIUtz4iAAAAAElFTkSuQmCC);
     }
     }
   }

@@ -3,7 +3,7 @@
     <div class="seckill-container">
       <div class="title-wrapper">
         <a href="https://wqs.jd.com/portal/wx/seckill_m/index.shtml?st=1" class="seckill-left-link">
-          <div class="seckill-title-img"></div>
+          <!-- <div class="seckill-title-img"></div> -->
           <strong>{{hours}}点场</strong>
           <sec-kill-time @getHours="getHours"></sec-kill-time>
         </a>

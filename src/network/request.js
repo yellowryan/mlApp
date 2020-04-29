@@ -13,7 +13,7 @@ export function request(config){
     return instance(config)
 }
 
-export  function ajax(url,data={},type='GET') {
+export function ajax(url,data={},type='GET') {
 	if(type === 'GET'){
 		let subString = '';
 		Object.keys(data).forEach(key=>{

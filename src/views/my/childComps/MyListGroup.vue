@@ -29,7 +29,7 @@
       </div>
       <div class="assets_item">
         <div class="assets_item_val">
-          <span class="assets_val">8000.00
+          <span class="assets_val">1000.00
             <span class="assets_unit">元</span>
           </span>
         </div>

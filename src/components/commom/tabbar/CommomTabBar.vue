@@ -1,8 +1,8 @@
 <template>
     <tab-bar>
         <tab-bar-item path="/home">
-            <img slot="item-icon" src="https://img11.360buyimg.com/jdphoto/s130x100_jfs/t1/81741/30/12345/4140/5d9c4b13E726f0a1e/82c582e7c375e4b3.png">
-            <img slot="item-icon-active" src="https://img11.360buyimg.com/jdphoto/s130x100_jfs/t1/67550/26/12426/5094/5d9c4b13Eea435a3f/81328b0609c60a3c.png" alt="">
+            <img slot="item-icon" src="../../../assets/img/82c582e7c375e4b3.jpg">
+            <img slot="item-icon-active" src="../../../assets/img/81328b0609c60a3c.jpg" alt="">
         </tab-bar-item>
         <tab-bar-item path="/category">
             <img slot="item-icon" src="https://img11.360buyimg.com/jdphoto/s130x100_jfs/t1/56507/6/12787/3168/5d9c4b12Ef363dd8d/4af32f42575509d8.png" alt="">

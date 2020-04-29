@@ -56,7 +56,6 @@ export default {
       this.$emit("spanClick", this.currentIndex);
     }
   },
-  created() {},
   watch: {
     scrollTop() {
       if (this.scrollTop < 20) {

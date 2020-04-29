@@ -1,6 +1,6 @@
 <template>
   <div class="alert_block" v-if="showBlock">
-    <div class="alert" :style="{width:outWidth}">
+    <div class="alert">
       <i class="icon_success"></i>
       <p class="message">{{message}}</p>
       <div class="btns" v-if="showBtns">
@@ -18,17 +18,17 @@ export default {
       message: "",
       showBlock: false,
       showBtns: false,
-      outWidth: "",
     };
   },
   methods: {
     addCart(message, duration = 2000,fun) {
       this.showBlock = true;
       this.message = message;
+      const self = this;
       setTimeout(() => {
         this.showBlock = false;
         this.message = "";
-        fun&&fun()
+        fun&&fun.call(self)
       }, duration);
     }
   }

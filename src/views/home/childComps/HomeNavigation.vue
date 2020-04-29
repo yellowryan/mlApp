@@ -21,6 +21,45 @@
   </div>
 </template>
 
+
+
+<script>
+export default {
+  props:{
+    navIcon:{
+      type:Array,
+      default(){
+        return []
+      }
+    }
+  },
+  data() {
+    return {
+      navList: [],
+      offsetLeft: 0
+    };
+  },
+  watch: {
+    offsetLeft() {
+      this.offsetLeft = document.getElementsByClassName(
+        "navigation-list"
+      )[0].scrollLeft;
+      this.$refs.thumb.style.transform = `translate(${(this.offsetLeft /
+        document.getElementsByClassName("navigation-list")[0].clientWidth) *
+        30}px)`;
+    }
+  },
+  methods: {
+    scrollHandle() {
+      this.offsetLeft = document.getElementsByClassName(
+        "navigation-list"
+      )[0].scrollLeft;
+      return this.offsetLeft;
+    }
+  }
+};
+</script>
+
 <style lang="less" scoped>
 .navigation-bar {
   margin-top: 2px;
@@ -109,43 +148,3 @@
   }
 }
 </style>
-
-<script>
-export default {
-  props:{
-    navIcon:{
-      type:Array,
-      default(){
-        return []
-      }
-    }
-  },
-  data() {
-    return {
-      navList: [],
-      offsetLeft: 0
-    };
-  },
-  created() {
-
-  },
-  watch: {
-    offsetLeft() {
-      this.offsetLeft = document.getElementsByClassName(
-        "navigation-list"
-      )[0].scrollLeft;
-      this.$refs.thumb.style.transform = `translate(${(this.offsetLeft /
-        document.getElementsByClassName("navigation-list")[0].clientWidth) *
-        30}px)`;
-    }
-  },
-  methods: {
-    scrollHandle() {
-      this.offsetLeft = document.getElementsByClassName(
-        "navigation-list"
-      )[0].scrollLeft;
-      return this.offsetLeft;
-    }
-  }
-};
-</script>
