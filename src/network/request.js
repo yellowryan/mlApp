@@ -17,7 +17,7 @@ export function ajax(url,data={},type='GET') {
 	if(type === 'GET'){
 		let subString = '';
 		Object.keys(data).forEach(key=>{
-			subString += data + "=" + data[key] + "&"
+			subString += key + "=" + data[key] + "&"
 		})
 
 		if(subString){

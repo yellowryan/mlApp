@@ -12,7 +12,7 @@
       <div slot="left" class="icon-container" @click.stop.prevent="backClick" ref="left">
         <span class="detail-icon detail-back"></span>
       </div>
-      <div slot="right" class="icon-container" @click="isShow =!isShow" ref="right">
+      <div slot="right" class="icon-container" @click.stop="moreClick" ref="right">
         <span class="detail-icon detail-more"></span>
         <show-more v-show="isShow"></show-more>
       </div>
@@ -54,6 +54,11 @@ export default {
     spanClick(index) {
       this.currentIndex = index;
       this.$emit("spanClick", this.currentIndex);
+    },
+
+    moreClick(){
+      this.isShow = !this.isShow
+      this.$emit("moreClick")
     }
   },
   watch: {

@@ -22,9 +22,6 @@
         <div class="notice"></div>
         <button class="btn login-btn" @click="registerClick" :class="{'btn-active':inputValue&&pwdValue&&pwdValueCheck}">注&nbsp;册</button>
         <button class="btn one-step" @click="hasCount">已有账号</button>
-        <p class="quick-btn">
-          <span style="float:right">手机快速注册</span>
-        </p>
 
     </div>
 

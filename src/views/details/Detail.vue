@@ -6,7 +6,9 @@
       :scrollTop="scrollTop"
       @spanClick="spanClick"
       @searchMounted="searchMounted"
+      @moreClick = "moreClick"
     ></detail-search>
+    <div class='detail-mask' ref='mask' @click.stop='maskClick'></div>
     <detail-swiper :topImageList="topImageList"></detail-swiper>
     <detail-banner :banner="banner"></detail-banner>
     <detail-buy-area :goodsInfo="goodsInfo"></detail-buy-area>
@@ -173,6 +175,15 @@ export default {
       window.scrollTo(0, this.offsetTopList[index]);
     },
 
+    moreClick(){
+      this.$refs.mask.style.display = 'block'
+    },
+
+    maskClick(){
+      this.$refs.mask.style.display = 'none'
+      this.$refs.detSearch.isShow = false
+    },
+
     // 点击加入购物车后的动作
     addToCart(){
       const product={}
@@ -206,6 +217,17 @@ export default {
 .detail {
   background-color: #e8e8ed !important;
   position: relative;
+}
+.detail-mask{
+  display:none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 98;
+  background: transparent;
 }
 .bg {
   width: 100%;

@@ -1,4 +1,6 @@
 module.exports = {
+    outputDir: "dist",
+    assetsDir: "assets",
     configureWebpack: {
         resolve: {
             alias: {
@@ -20,6 +22,8 @@ module.exports = {
                 }
             }
         }
-    }
+    },
+    productionSourceMap:false,
+    
 
 }

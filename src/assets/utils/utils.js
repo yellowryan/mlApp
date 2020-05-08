@@ -8,10 +8,13 @@ export function timeCount(){
 export function debounce(fun,delay){
     let timer = null;
     return function(...args){
+        
         if(timer)clearTimeout(timer);
+        
         timer = setTimeout(()=>{
-            fun.apply(this,args)
+            fun.apply(this, args)
         },delay)
+
     }
 }
 
@@ -50,7 +53,6 @@ export function removeCookie(name){
 }
 
 export function setCookie(name, value, days) {
-
     var d = new Date;
 
     d.setTime(d.getTime() + 24*60*60*1000*days);

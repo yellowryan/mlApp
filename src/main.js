@@ -14,13 +14,13 @@ Vue.config.productionTip = false
 
 Vue.use(vueSwiper)
 
-Vue.prototype.$bus = new Vue()
-
 // fastClick.attach(document.body)
 
 Vue.use(lazyload,{
     loading:require('./assets/img/ryan.png')
 })
+
+Vue.prototype.$bus = new Vue()
 
 Vue.use(toast)
 new Vue({

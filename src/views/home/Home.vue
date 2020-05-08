@@ -28,20 +28,6 @@
   
 </template>
 
-<style lang="less" scoped>
-.main {
-  padding-top: 44px;
-  height: 100%;
-  background:url(https://m.360buyimg.com/mobilecms/s1125x939_jfs/t1/110333/10/4009/93682/5e182592Ef376596f/e8a6fcffca6322e2.jpg) center center/cover no-repeat
-}
-.fade-enter-active,.fade-leave-active{
-  transition:opacity .3s ease-in-out
-}
-.fade-enter,.fade-leave-to{
-  opacity:0
-}
-</style>
-
 <script>
 import Advert from "./childComps/HomeAdvert";
 import Search from "./childComps/HomeSearch";
@@ -66,6 +52,8 @@ import {
 } from "../../network/home";
 
 import { debounce } from "../../assets/utils/utils";
+
+import '../../assets/css/home.less'
 
 export default {
   name:'Home',
@@ -173,6 +161,9 @@ export default {
     }
   },
   mounted() {
+    this.$bus.$on('goTop',()=>{
+      this.scrollY = 0
+    })
     this.$refs.scroll.refresh()
     this.fresh = debounce(this.$refs.scroll.refresh, 100);
   },
@@ -186,16 +177,18 @@ export default {
 };
 </script>
 
-<style lang="less">
-.container {
-  position: relative;
-  margin-left: 0.5rem;
-  margin-right: 0.5rem;
-  margin-bottom: 0.5rem;
+
+<style lang="less" scoped>
+.main {
+  padding-top: 44px;
+  height: 100%;
+  background:url(https://m.360buyimg.com/mobilecms/s1125x939_jfs/t1/110333/10/4009/93682/5e182592Ef376596f/e8a6fcffca6322e2.jpg) center center/cover no-repeat
 }
-.home-content {
-  height: calc(100% - 44px);
-  overflow: hidden;
+.fade-enter-active,.fade-leave-active{
+  transition:opacity .3s ease-in-out
+}
+.fade-enter,.fade-leave-to{
+  opacity:0
 }
 </style>
 

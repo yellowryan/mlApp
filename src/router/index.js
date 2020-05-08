@@ -7,6 +7,7 @@ const Cart = () => import('../views/cart/Cart.vue')
 const My = () => import('../views/my/My.vue')
 const Login = () => import('../views/login/Login.vue')
 const Register = () => import('../views/register/Register.vue')
+const Phone = () => import('../views/login/Phone.vue')
 const Detail = () =>import('../views/details/Detail.vue')
 const Search = () =>import('../views/home/childComps/HomeSubSearch.vue')
 
@@ -86,6 +87,14 @@ const router =  new VueRouter({
             component:Register,
             meta:{
                 title:"请注册"
+            }
+        },
+        {
+            path:'/phone',
+            name:'phone',
+            component:Phone,
+            meta:{
+                title:"手机登录"
             }
         },
         {
