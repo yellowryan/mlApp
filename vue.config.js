@@ -1,29 +1,15 @@
 module.exports = {
-    outputDir: "dist",
-    assetsDir: "assets",
-    configureWebpack: {
-        resolve: {
-            alias: {
-                'assets': '@/assets',
-                'commom': '@/commom',
-                'components': '@/components',
-                'network': '@/network',
-                'views': '@/views'
-            }
-        }
-    },
+    assetsDir: "static",
     devServer: {
         proxy: {
             '/api': {
                 target: 'http://localhost:5000',
                 changeOrigin: true,
                 pathRewrite: {
-                  '^/api': ''
+                    '^/api': ''
                 }
             }
         }
     },
-    productionSourceMap:false,
-    
-
+    productionSourceMap: false,
 }

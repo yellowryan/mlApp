@@ -15,16 +15,9 @@ export function request(config){
 
 export function ajax(url,data={},type='GET') {
 	if(type === 'GET'){
-		let subString = '';
-		Object.keys(data).forEach(key=>{
-			subString += key + "=" + data[key] + "&"
+		return axios.get(url,{
+		   params:data
 		})
-
-		if(subString){
-			subString = subString.substring(0,subString.lastIndexOf('&'));
-			url = url + '?' + subString
-		}
-		return axios.get(url)
 	}else{
 		return axios.post(url,data)
 	}

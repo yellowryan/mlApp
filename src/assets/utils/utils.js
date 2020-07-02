@@ -5,17 +5,17 @@ export function timeCount(){
 
 
 
-export function debounce(fun,delay){
-    let timer = null;
-    return function(...args){
-        
-        if(timer)clearTimeout(timer);
-        
-        timer = setTimeout(()=>{
-            fun.apply(this, args)
-        },delay)
-
-    }
+export function debounce(func,wait){
+    let timeout
+    return function(){
+            let args = [].slice.call(arguments);
+            if(timeout) clearTimeout(timeout);
+            let callNow = !timeout;
+            timeout = setTimeout(()=>{
+                timeout = null;
+            },wait) 
+            if(callNow) func.apply(this,args);
+        }
 }
 
 

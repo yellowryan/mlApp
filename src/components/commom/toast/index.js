@@ -1,9 +1,7 @@
 import Toast from './Toast'
 
 const obj = {
-    install:function(Vue){
-        console.log("zhixingle函数")
-
+    install: function(Vue) {
         //创建组件构造器
         const ToastConstructor = Vue.extend(Toast)
 

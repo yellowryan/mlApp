@@ -1,6 +1,6 @@
 <template>
   <div class="back-top">
-      <img src="../../../../public/imgs/top.png">
+      <img src="https://ae01.alicdn.com/kf/H08fe6c15c8e5486294abad7add8f1fd8L.png">
   </div>
 </template>
 

@@ -10,7 +10,7 @@
             <div class="personal_wrap">
               <div class="name_wrap">
                 <div>
-                  <span class="my_header_name">{{user.username}}</span>
+                  <span class="my_header_name">{{user.username||user.phone}}</span>
                   <span class="my_header_name_edit"></span>
                 </div>
               </div>

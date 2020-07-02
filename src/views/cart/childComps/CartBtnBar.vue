@@ -20,7 +20,7 @@
 import { mapGetters } from "vuex";
 export default {
   computed: {
-    ...mapGetters(["selectAll","cartList"])
+    ...mapGetters(["selectAll", "cartList"])
   },
   methods: {
     allSelect() {
@@ -28,11 +28,12 @@ export default {
         this.cartList.forEach(item => {
           item.isSelected = false;
         });
-      } else{
-          this.cartList.filter(item=>item.isSelected==false)
-          .forEach(item=>{
-              item.isSelected = true
-          })
+      } else {
+        this.cartList
+          .filter(item => item.isSelected == false)
+          .forEach(item => {
+            item.isSelected = true;
+          });
       }
     }
   }

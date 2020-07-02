@@ -5,6 +5,7 @@ import {ADD_CART,
         USER_REGISTER,
         USER_LOGIN,
         USER_RESER,
+        USER_PHONE_LOGIN,
         GET_GOODS_LIST,
         RESET_GOODS_LIST
     } from './mutation-types.js' 
@@ -69,6 +70,9 @@ export default {
     [USER_RESER](state,name){
         state.user = {}
         removeCookie(name)
+    },
+    [USER_PHONE_LOGIN](state, user){
+        state.user = user
     },
     [GET_GOODS_LIST](state,goodsList){
         state.goodsList = goodsList

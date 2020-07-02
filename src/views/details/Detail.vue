@@ -6,9 +6,9 @@
       :scrollTop="scrollTop"
       @spanClick="spanClick"
       @searchMounted="searchMounted"
-      @moreClick = "moreClick"
+      @moreClick="moreClick"
     ></detail-search>
-    <div class='detail-mask' ref='mask' @click.stop='maskClick'></div>
+    <div class="detail-mask" ref="mask" @click.stop="maskClick"></div>
     <detail-swiper :topImageList="topImageList"></detail-swiper>
     <detail-banner :banner="banner"></detail-banner>
     <detail-buy-area :goodsInfo="goodsInfo"></detail-buy-area>
@@ -52,7 +52,7 @@ import { getDetailInformation } from "../../network/detail";
 
 import { debounce } from "../../assets/utils/utils";
 
-import {ADD_CART} from '../../store/mutation-types'
+import { ADD_CART } from "../../store/mutation-types";
 export default {
   name: "Detail",
   components: {
@@ -94,7 +94,7 @@ export default {
   created() {
     (this.id = this.$route.params.id), this.getDetailInformation();
 
-  //对获取高度进行防抖操作
+    //对获取高度进行防抖操作
     this.getOffsetTop = debounce(() => {
       this.offsetTopList.push(0);
       this.offsetTopList.push(
@@ -145,7 +145,7 @@ export default {
       } else {
         this.isShow = false;
       }
-    
+
       for (let i = 0; i < this.offsetTopList.length - 1; i++) {
         if (
           this.searchIndex !== i &&
@@ -175,31 +175,36 @@ export default {
       window.scrollTo(0, this.offsetTopList[index]);
     },
 
-    moreClick(){
-      this.$refs.mask.style.display = 'block'
+    moreClick() {
+      this.$refs.mask.style.display = "block";
     },
 
-    maskClick(){
-      this.$refs.mask.style.display = 'none'
-      this.$refs.detSearch.isShow = false
+    maskClick() {
+      this.$refs.mask.style.display = "none";
+      this.$refs.detSearch.isShow = false;
     },
 
     // 点击加入购物车后的动作
-    addToCart(){
-      const product={}
+    addToCart() {
+      const product = {};
 
-      product.img = this.goodsInfo.img 
-      product.name = this.goodsInfo.name
-      product.price = this.goodsInfo.price
-      product.id = this.goodsInfo.id
-      product.discount = this.goodsInfo.discount
-      product.count = +this.goodsInfo.count
-      product.shopName = this.shopInfo.name
-      product.type = this.goodsInfo.type
-      product.isSelected = this.goodsInfo.isSelected
-      this.$store.commit(ADD_CART,product)
+      product.img = this.goodsInfo.img;
+      product.name = this.goodsInfo.name;
+      product.price = this.goodsInfo.price;
+      product.id = this.goodsInfo.id;
+      product.discount = this.goodsInfo.discount;
+      product.count = +this.goodsInfo.count;
+      product.shopName = this.shopInfo.name;
+      product.type = this.goodsInfo.type;
+      product.isSelected = this.goodsInfo.isSelected;
+      this.$store.commit(ADD_CART, product);
 
-      this.$toast.addCart("加入购物车成功")
+      this.$toast.message({
+        type: "success",
+        message: "加入购物车成功",
+        duration: 3000,
+        isRadious: true
+      });
     }
   },
   watch: {
@@ -207,8 +212,8 @@ export default {
       this.nowHeight = this.$refs[this.current].$el.offsetHeight + "px";
     }
   },
-  destroyed(){
-    window.removeEventListener("scroll",this.handleScroll)
+  destroyed() {
+    window.removeEventListener("scroll", this.handleScroll);
   }
 };
 </script>
@@ -218,8 +223,8 @@ export default {
   background-color: #e8e8ed !important;
   position: relative;
 }
-.detail-mask{
-  display:none;
+.detail-mask {
+  display: none;
   position: fixed;
   width: 100%;
   height: 100%;
@@ -240,5 +245,4 @@ export default {
     transition: all 0.3s ease-in-out;
   }
 }
-
 </style>

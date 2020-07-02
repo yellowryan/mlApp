@@ -7,14 +7,14 @@ import actions from './actions'
 
 Vue.use(Vuex)
 
-var cart = JSON.parse(localStorage.getItem('cartList') || '[]' )
+var cart = JSON.parse(localStorage.getItem('cartList') || '[]')
 
 export default new Vuex.Store({
     state: {
-        cartList:cart,
-        user:{},
-        goodsList:[],
-        msg:''
+        cartList: cart,
+        user: {},
+        goodsList: [],
+        msg: ''
     },
     getters,
     mutations,

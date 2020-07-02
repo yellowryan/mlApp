@@ -20,6 +20,8 @@ export const USER_LOGIN = 'user_login'
 //用户信息重置
 export const USER_RESER = 'user_reset'
 
+export const USER_PHONE_LOGIN = 'user_phone_login'
+
 //搜索商品列表
 export const GET_GOODS_LIST = 'get_goods_list'
 

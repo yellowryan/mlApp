@@ -1,7 +1,7 @@
 <template>
   <div class="main">
     <!-- <home-advert /> -->
-    <home-search ref="search" @homeFocus="homeFocus"/>
+    <home-search ref="search" @homeFocus="homeFocus" />
     <scroll
       class="home-content"
       @scroll="homeScroll"
@@ -9,7 +9,7 @@
       :probe-type="3"
       :pullUpLoad="true"
       @pullingUp="loadMore"
-      >
+    >
       <home-swiper ref="swiper" />
       <home-banner></home-banner>
       <home-nav :navIcon="navIcon"></home-nav>
@@ -18,14 +18,12 @@
       <home-daily :dailyList="dailyList"></home-daily>
       <home-recommend :recommendList="recommend.list" @imgLoaded="homeImgLoaded"></home-recommend>
     </scroll>
-      <back-top @click.native="backClick" v-show="isShowBackTop" />
-      <home-tabbar></home-tabbar>
-      <transition name='fade'>
-         <router-view />
-      </transition>
-     
+    <back-top @click.native="backClick" v-show="isShowBackTop" />
+    <home-tabbar></home-tabbar>
+    <transition name="fade">
+      <router-view />
+    </transition>
   </div>
-  
 </template>
 
 <script>
@@ -53,10 +51,10 @@ import {
 
 import { debounce } from "../../assets/utils/utils";
 
-import '../../assets/css/home.less'
+import "../../assets/css/home.less";
 
 export default {
-  name:'Home',
+  name: "Home",
   components: {
     "home-advert": Advert,
     "home-search": Search,
@@ -82,7 +80,7 @@ export default {
       },
       isShowBackTop: false,
       fresh: null,
-      scrollY: 0,
+      scrollY: 0
     };
   },
   created() {
@@ -151,20 +149,20 @@ export default {
     },
 
     loadMore() {
-      if(this.recommend.page <=2){
+      if (this.recommend.page <= 2) {
         this.getRecommendList();
       }
     },
 
-    homeFocus(){
-      this.$router.push('/home/search').catch(error=>error)
+    homeFocus() {
+      this.$router.push("/home/search").catch(error => error);
     }
   },
   mounted() {
-    this.$bus.$on('goTop',()=>{
-      this.scrollY = 0
-    })
-    this.$refs.scroll.refresh()
+    this.$bus.$on("goTop", () => {
+      this.scrollY = 0;
+    });
+    this.$refs.scroll.refresh();
     this.fresh = debounce(this.$refs.scroll.refresh, 100);
   },
   activated() {
@@ -182,13 +180,16 @@ export default {
 .main {
   padding-top: 44px;
   height: 100%;
-  background:url(https://m.360buyimg.com/mobilecms/s1125x939_jfs/t1/110333/10/4009/93682/5e182592Ef376596f/e8a6fcffca6322e2.jpg) center center/cover no-repeat
+  background: url(https://m.360buyimg.com/mobilecms/s1125x939_jfs/t1/110333/10/4009/93682/5e182592Ef376596f/e8a6fcffca6322e2.jpg)
+    center center/cover no-repeat;
 }
-.fade-enter-active,.fade-leave-active{
-  transition:opacity .3s ease-in-out
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s ease-in-out;
 }
-.fade-enter,.fade-leave-to{
-  opacity:0
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>
 

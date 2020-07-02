@@ -8,16 +8,16 @@ import 'swiper/dist/css/swiper.css' //引入样式
 import fastClick from 'fastclick'
 import lazyload from 'vue-lazyload'
 
-import toast from 'components/commom/toast'
+import toast from './components/commom/toast'
 
 Vue.config.productionTip = false
 
 Vue.use(vueSwiper)
 
-// fastClick.attach(document.body)
+fastClick.attach(document.body)
 
-Vue.use(lazyload,{
-    loading:require('./assets/img/ryan.png')
+Vue.use(lazyload, {
+    loading: require('./assets/img/ryan.png')
 })
 
 Vue.prototype.$bus = new Vue()
